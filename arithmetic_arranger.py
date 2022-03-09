@@ -1,4 +1,4 @@
-def arithmetic_arranger(problems, answers):
+def arithmetic_arranger(problems):
 
 
     return arranged_problems
