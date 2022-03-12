@@ -4,14 +4,16 @@ def arithmetic_arranger(problems):
     row_three = ""
 
     for problem in problems:
-        split_problem = problem.split(" ", 1)
-        length = max(len(split_problem[0]), len(split_problem[1]))
-        # print(split_problem[0])
-        # print(split_problem[1])
-        # print(length)
-        row_one += f"{split_problem[0]}\t"
-        row_two += f"{split_problem[1]}\t"
-        row_three += f"{'-' * length}\t"
+        split_problem = problem.split(" ")
+        num_1 = split_problem[0]
+        num_2 = split_problem[2]
+        operator = split_problem[1]
+        length = max(len(split_problem[0]), len(split_problem[2]))
+        divider_length = length + 2
+
+        row_one += f"{' ' * ((length + 2) - len(num_1))}{num_1}\t"
+        row_two += f"{operator}{' ' * ((length + 1) - len(num_2))}{num_2}\t"
+        row_three += f"{'-' * divider_length}\t"
 
     arranged_problems = f"""{row_one}
 {row_two}
