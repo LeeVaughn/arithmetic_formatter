@@ -11,9 +11,17 @@ def arithmetic_arranger(problems):
         length = max(len(split_problem[0]), len(split_problem[2]))
         divider_length = length + 2
 
-        row_one += f"{' ' * ((length + 2) - len(num_1))}{num_1}\t"
-        row_two += f"{operator}{' ' * ((length + 1) - len(num_2))}{num_2}\t"
-        row_three += f"{'-' * divider_length}\t"
+        row_one += f"{' ' * ((length + 2) - len(num_1))}{num_1}"
+        row_two += f"{operator}{' ' * ((length + 1) - len(num_2))}{num_2}"
+        row_three += f"{'-' * divider_length}"
+
+        # adds for spaces between problems except after the last problem
+        if problem is not problems[len(problems) -1]:
+            row_one += "    "
+            row_two += "    "
+            row_three += "    "
+
+
 
     arranged_problems = f"""{row_one}
 {row_two}
