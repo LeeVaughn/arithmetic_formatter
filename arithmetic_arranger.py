@@ -3,6 +3,7 @@ def arithmetic_arranger(problems):
     row_two = ""
     row_three = ""
 
+    # error handling for too many problems
     if len(problems) > 5:
         arranged_problems = "Error: Too many problems."
         return arranged_problems
@@ -14,6 +15,11 @@ def arithmetic_arranger(problems):
         operator = split_problem[1]
         length = max(len(split_problem[0]), len(split_problem[2]))
         divider_length = length + 2
+
+        # error handling for operators other than + or -
+        if operator != "+" and operator != "-":
+            arranged_problems = "Error: Operator must be '+' or '-'."
+            return arranged_problems
 
         row_one += f"{' ' * ((length + 2) - len(num_1))}{num_1}"
         row_two += f"{operator}{' ' * ((length + 1) - len(num_2))}{num_2}"
