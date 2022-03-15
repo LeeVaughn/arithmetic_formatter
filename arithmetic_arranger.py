@@ -3,6 +3,10 @@ def arithmetic_arranger(problems):
     row_two = ""
     row_three = ""
 
+    if len(problems) > 5:
+        arranged_problems = "Error: Too many problems."
+        return arranged_problems
+
     for problem in problems:
         split_problem = problem.split(" ")
         num_1 = split_problem[0]
