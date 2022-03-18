@@ -22,6 +22,12 @@ def arithmetic_arranger(problems, solve=False):
             arranged_problems = "Error: Operator must be '+' or '-'."
             return arranged_problems
 
+        # error handling for numbers only containing digits
+        if problem.upper().isupper():
+            arranged_problems = "Error: Numbers must only contain digits."
+            return arranged_problems
+            
+
         # error handling for numbers greater than four digits
         if len(num_1) > 4 or len(num_2) > 4:
             arranged_problems = "Error: Numbers cannot be more than four digits."
@@ -38,10 +44,10 @@ def arithmetic_arranger(problems, solve=False):
             row_three += "    "
 
         if solve is True:
-            if operator is "+":
+            if operator == "+":
                 total = int(num_1) + int(num_2)
                 row_four += f"{' ' * (divider_length - len(str(total)))}{int(num_1) + int(num_2)}"
-            elif operator is "-":
+            elif operator == "-":
                 total = int(num_1) - int(num_2)
                 row_four += f"{' ' * (divider_length - len(str(total)))}{int(num_1) - int(num_2)}"
 
