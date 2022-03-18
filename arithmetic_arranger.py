@@ -21,6 +21,11 @@ def arithmetic_arranger(problems):
             arranged_problems = "Error: Operator must be '+' or '-'."
             return arranged_problems
 
+        # error handling for numbers greater than four digits
+        if len(num_1) > 4 or len(num_2) > 4:
+            arranged_problems = "Error: Numbers cannot be more than four digits."
+            return arranged_problems
+
         row_one += f"{' ' * ((length + 2) - len(num_1))}{num_1}"
         row_two += f"{operator}{' ' * ((length + 1) - len(num_2))}{num_2}"
         row_three += f"{'-' * divider_length}"
