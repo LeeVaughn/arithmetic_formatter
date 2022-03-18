@@ -1,7 +1,8 @@
-def arithmetic_arranger(problems):
+def arithmetic_arranger(problems, solve=False):
     row_one = ""
     row_two = ""
     row_three = ""
+    row_four = ""
 
     # error handling for too many problems
     if len(problems) > 5:
@@ -36,13 +37,31 @@ def arithmetic_arranger(problems):
             row_two += "    "
             row_three += "    "
 
+        if solve is True:
+            if operator is "+":
+                total = int(num_1) + int(num_2)
+                row_four += f"{' ' * (divider_length - len(str(total)))}{int(num_1) + int(num_2)}"
+            elif operator is "-":
+                total = int(num_1) - int(num_2)
+                row_four += f"{' ' * (divider_length - len(str(total)))}{int(num_1) - int(num_2)}"
+
+            if problem is not problems[len(problems) -1]:
+                row_four += "    "
+            
 
 
-    arranged_problems = f"""{row_one}
+    if solve is True:
+        arranged_problems = f"""{row_one}
+{row_two}
+{row_three}
+{row_four}"""
+    else:
+        arranged_problems = f"""{row_one}
 {row_two}
 {row_three}"""
 
     return arranged_problems
 
 
-print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]))
+# print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]))
+print(arithmetic_arranger(["32 + 8", "1 - 3801", "9999 + 9999", "523 - 49"], True))
